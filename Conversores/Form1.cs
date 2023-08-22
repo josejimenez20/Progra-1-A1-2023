@@ -11,6 +11,11 @@ using System.Windows.Forms;
 namespace Conversores
 {
     public partial class Form1 : Form
+
+        //Jose Heinar Jimenez Reyes 
+        // Gladis Mayrena Barahona Pineda
+        //Nahun Ezequiel Martinez Argueta 
+        //Gilberto Lizama Hernandez
     {
         String[][] TipoDeConversores = new String[][]{
           new String[]{"Dolar", "Euro", "Quetzal", "Lempira", "Cordoba", "ColonSV", "ColonCR", "Yenes", "Rupias india", "Libras esterlinas"},
