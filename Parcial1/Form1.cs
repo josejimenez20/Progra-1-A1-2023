@@ -27,8 +27,11 @@ namespace Parcial1
             a = cboAConversores.SelectedIndex;
 
             cantidad = double.Parse(txtCantidadConversores.Text);
+
             double[] medida = { 0.09290304, 0.698896, 0.836127, 1, 438, 7000, 10000, };
+
             respuesta = medida[a] / medida[de] * cantidad;
+
             lblRespuestaConversores.Text = " Respuesta " + Math.Round(respuesta, 2);
         }
     }
