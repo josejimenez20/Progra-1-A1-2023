@@ -30,7 +30,7 @@ namespace Parcial1
 
             double[] medida = { 0.09290304, 0.698896, 0.836127, 1, 438, 7000, 10000, };
 
-            respuesta = medida[a] / medida[de] * cantidad;
+            respuesta = medida[de] / medida[a] * cantidad;
             // Trajabe individual en el  Funcionalidad del conversor de Área (Superficie) 
             //Estudiante: Jose Heinar Jimenez Reyes USSS040123
             lblRespuestaConversores.Text = " Respuesta " + Math.Round(respuesta, 2);
