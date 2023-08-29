@@ -17,14 +17,19 @@ namespace Parcial1
             InitializeComponent();
         }
 
-        private void btnConvertirConversores_Click(object sender, EventArgs e)
-        {
-           
-        }
 
-        private void cboDeConversores_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnConvertirConversores_Click_1(object sender, EventArgs e)
         {
+            int de, a;
+            double cantidad, respuesta;
 
+            de = cboDeConversores.SelectedIndex;
+            a = cboAConversores.SelectedIndex;
+
+            cantidad = double.Parse(txtCantidadConversores.Text);
+            double[] medida = { 0.09290304, 0.698896, 0.836127, 1, 438, 7000, 10000, };
+            respuesta = medida[a] / medida[de] * cantidad;
+            lblRespuestaConversores.Text = " Respuesta " + Math.Round(respuesta, 2);
         }
     }
 }

@@ -43,7 +43,7 @@ namespace Parcial1
             // 
             this.lblRespuestaConversores.AutoSize = true;
             this.lblRespuestaConversores.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRespuestaConversores.Location = new System.Drawing.Point(263, 224);
+            this.lblRespuestaConversores.Location = new System.Drawing.Point(123, 178);
             this.lblRespuestaConversores.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRespuestaConversores.Name = "lblRespuestaConversores";
             this.lblRespuestaConversores.Size = new System.Drawing.Size(154, 27);
@@ -54,7 +54,7 @@ namespace Parcial1
             // 
             this.lblCantidadConversores.AutoSize = true;
             this.lblCantidadConversores.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidadConversores.Location = new System.Drawing.Point(263, 160);
+            this.lblCantidadConversores.Location = new System.Drawing.Point(33, 137);
             this.lblCantidadConversores.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCantidadConversores.Name = "lblCantidadConversores";
             this.lblCantidadConversores.Size = new System.Drawing.Size(116, 27);
@@ -73,7 +73,7 @@ namespace Parcial1
             "Tarea ",
             "Manzana ",
             "Hectarea "});
-            this.cboAConversores.Location = new System.Drawing.Point(345, 102);
+            this.cboAConversores.Location = new System.Drawing.Point(84, 79);
             this.cboAConversores.Margin = new System.Windows.Forms.Padding(4);
             this.cboAConversores.Name = "cboAConversores";
             this.cboAConversores.Size = new System.Drawing.Size(193, 24);
@@ -83,7 +83,7 @@ namespace Parcial1
             // 
             this.lblAConversores.AutoSize = true;
             this.lblAConversores.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAConversores.Location = new System.Drawing.Point(281, 102);
+            this.lblAConversores.Location = new System.Drawing.Point(24, 79);
             this.lblAConversores.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAConversores.Name = "lblAConversores";
             this.lblAConversores.Size = new System.Drawing.Size(34, 27);
@@ -92,10 +92,10 @@ namespace Parcial1
             // 
             // txtCantidadConversores
             // 
-            this.txtCantidadConversores.Location = new System.Drawing.Point(391, 165);
+            this.txtCantidadConversores.Location = new System.Drawing.Point(157, 137);
             this.txtCantidadConversores.Margin = new System.Windows.Forms.Padding(4);
             this.txtCantidadConversores.Name = "txtCantidadConversores";
-            this.txtCantidadConversores.Size = new System.Drawing.Size(132, 22);
+            this.txtCantidadConversores.Size = new System.Drawing.Size(139, 22);
             this.txtCantidadConversores.TabIndex = 21;
             // 
             // cboDeConversores
@@ -110,18 +110,17 @@ namespace Parcial1
             "Tarea ",
             "Manzana ",
             "Hectarea "});
-            this.cboDeConversores.Location = new System.Drawing.Point(345, 46);
+            this.cboDeConversores.Location = new System.Drawing.Point(84, 32);
             this.cboDeConversores.Margin = new System.Windows.Forms.Padding(4);
             this.cboDeConversores.Name = "cboDeConversores";
             this.cboDeConversores.Size = new System.Drawing.Size(193, 24);
             this.cboDeConversores.TabIndex = 20;
-            
             // 
             // lblDeConversores
             // 
             this.lblDeConversores.AutoSize = true;
             this.lblDeConversores.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeConversores.Location = new System.Drawing.Point(272, 46);
+            this.lblDeConversores.Location = new System.Drawing.Point(24, 32);
             this.lblDeConversores.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDeConversores.Name = "lblDeConversores";
             this.lblDeConversores.Size = new System.Drawing.Size(52, 27);
@@ -131,20 +130,20 @@ namespace Parcial1
             // btnConvertirConversores
             // 
             this.btnConvertirConversores.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConvertirConversores.Location = new System.Drawing.Point(268, 291);
+            this.btnConvertirConversores.Location = new System.Drawing.Point(343, 36);
             this.btnConvertirConversores.Margin = new System.Windows.Forms.Padding(4);
             this.btnConvertirConversores.Name = "btnConvertirConversores";
             this.btnConvertirConversores.Size = new System.Drawing.Size(256, 113);
             this.btnConvertirConversores.TabIndex = 18;
             this.btnConvertirConversores.Text = "Convertir";
             this.btnConvertirConversores.UseVisualStyleBackColor = true;
-            
+            this.btnConvertirConversores.Click += new System.EventHandler(this.btnConvertirConversores_Click_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(607, 219);
             this.Controls.Add(this.lblRespuestaConversores);
             this.Controls.Add(this.lblCantidadConversores);
             this.Controls.Add(this.cboAConversores);
