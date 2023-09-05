@@ -39,7 +39,7 @@ namespace Conversores
 
                
 
-                respuesta = objConversores.+monedas[cboTipoConversor.SelectedIndex][a] / monedas[cboTipoConversor.SelectedIndex][de] * cantidad;
+                respuesta = objConversores.monedas[cboTipoConversor.SelectedIndex][a] / objConversores.monedas[cboTipoConversor.SelectedIndex][de] * cantidad;
                 lblRespuestaConversores.Text = "Respuesta: " + Math.Round(respuesta, 3);
 
             }
@@ -49,10 +49,10 @@ namespace Conversores
         {
             {
                 cboDeConversores.Items.Clear();
-                cboDeConversores.Items.AddRange(TipoDeConversores[cboTipoConversor.SelectedIndex]);
+                cboDeConversores.Items.AddRange(objConversores.TipoDeConversores[cboTipoConversor.SelectedIndex]);
 
                 cboAConversores.Items.Clear();
-                cboAConversores.Items.AddRange(TipoDeConversores[cboTipoConversor.SelectedIndex]);
+                cboAConversores.Items.AddRange(objConversores.TipoDeConversores[cboTipoConversor.SelectedIndex]);
             }
         }
     }

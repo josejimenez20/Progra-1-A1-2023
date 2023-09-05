@@ -8,7 +8,7 @@ namespace Conversores
 {
     class Conversores
     {
-        String[][] TipoDeConversores = new String[][]{
+         public String[][] TipoDeConversores = new String[][]{
           new String[]{"Dolar", "Euro", "Quetzal", "Lempira", "Cordoba", "ColonSV", "ColonCR", "Yenes", "Rupias india", "Libras esterlinas"},
           new String[]{"Libra", "Kilogramo", "Gramo", "Tonelada", "Miligramo", "Microgramo", "Tonelada Larga", "Tonelada Corta", "Stone", "Onza"},
           new String[]{"Litro", "Galon USA", "Cuarto USA", "Pinta USA", "Taza USA", "Onza liquida USA", "Cucharada USA", "Cucharadita USA", "Metro Cubico", "Mililitro"},
