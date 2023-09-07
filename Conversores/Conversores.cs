@@ -8,22 +8,29 @@ namespace Conversores
 {
     class Conversores
     {
-         public String[][] TipoDeConversores = new String[][]{
-          new String[]{"Dolar", "Euro", "Quetzal", "Lempira", "Cordoba", "ColonSV", "ColonCR", "Yenes", "Rupias india", "Libras esterlinas"},
-          new String[]{"Libra", "Kilogramo", "Gramo", "Tonelada", "Miligramo", "Microgramo", "Tonelada Larga", "Tonelada Corta", "Stone", "Onza"},
-          new String[]{"Litro", "Galon USA", "Cuarto USA", "Pinta USA", "Taza USA", "Onza liquida USA", "Cucharada USA", "Cucharadita USA", "Metro Cubico", "Mililitro"},
-          new String[]{"Metro", "Kilometro", "Centimetro", "Milimetro", "Micrometro", "Nanometro", "Milla", "Yarda", "Pie", "Pulgada"},
-          new String[]{"Megabyte", "Gigabyte", "Terabyte", "Petabyte", "Kilobyte", "Byte", "Petabit", "Terabit", "Gigabit", "Megabit"},
-          new String[]{"Minuto", "Segundo", "Hora", "Dia", "Semana", "mes", "Año", "Decada", "Siglo", "Milisegundo"},
+   
 
+        public String[][] etiquetas = new String[][]{
+           new String[] {"Dolar","Euro","Quetzal","Lempira","Colon Salvadoreño","Cordoba","Peso Costarricense","Yenes","Libras Esterlinas","Rupia india"},//Monedas
+           new String[] { "Miligramos", "Gramos","Kilogramos","Libras","Toneladas","Tonelada corta","Tonelada larga","Onza","Quintal","Stone"},//Masa
+           new String[] { "Mililitro","Litro", "Metro Cubico", "Galon ", "Cuarto", "Pinta", "Onza liquida","Taza","Cucharada","Cucharadita"},//Volumen
+           new String[] { "Micrometro", "Milimetro", "Centimetro", "Metro","Kilometro","Milla","Milla nautica","Yarda","Pulgada","Pie"},//Longitud
+           new String[] {"Bit","Byte","Kilobit","Kilobyte","Megabit","Megabyte","Gigabit","Gigabyte","Terabit","Terabyte"},//Almacenamiento
+           new String[] {"Microsegundo", "Milisegundo", "Segundo","Minuto","Hora","Dia","Semana","Año","Decada","Siglo"}//Tiempo
         };
-       public double[][] monedas = {
-                new double[]{1, 0.92, 7.86, 24.62, 36.56, 8.75, 535.14, 145.52, 83.32, 0.79 },
-                new double[]{1, 0.453592, 453.592, 0.000453592, 453592, 453600000, 0.000446429, 0.0005, 0.0714286, 16},
-                new double[]{1, 0.264172, 1.05669, 2.11338, 4.16667, 33.814, 67.628, 202.884, 0.001, 1000},
-                new double[]{1, 0.001, 100, 1000, 1000000, 1000000000, 0.000621371, 1.09361, 3.28084, 39.3701},
-                new double[]{1, 0.001, 0.000001, 0.000000001, 1000, 1000000, 0.000000001, 0.000001, 0.008, 8},
-                new double[]{1, 60, 0.0166667, 0.000694444, 0.000099206, 0.000022831, 0.0000019026, 0.00000019026, 0.00000001903, 60000},
-                };
+        public double[][] Valores = new Double[][]
+        {
+               new double[] { 1, 0.92, 7.86, 24.66, 8.75, 36.58, 535.14, 145.47, 0.79, 83.29 },
+                new double[]{1000000000,1000000,1000,2200,1,1.1002,0.9842,35274,10,157.473},//Masa
+                new double[]{1000,1,0.001,0.264172,1.05669,2.11338,33.814,4.1667,67.628,202.884},//Volumen
+                new double[]{1000000, 1000, 100,1,0.001,0.00062137,0.0005399,1.09361,39.3701,3.28084},//Longitud
+                new double[]{8000000,1000000,8000,1000,8,1,0.008,0.001,0.000008,0.000001},//Almacenamiento
+                new double[]{ 86400000000, 86400000,86400,1440,24,1,1.0/7,1.0/365,1.0/3650,1.0/36500},//Tiempo
+        };
+
+        public double Convertir(int tipo, int de, int a, double cantidad)
+        {
+            return Valores[tipo][a] / Valores[tipo][de] * cantidad;
+        }
     }
 }

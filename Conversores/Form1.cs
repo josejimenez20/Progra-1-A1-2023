@@ -29,18 +29,17 @@ namespace Conversores
         private void btnConvertirConversores_Click(object sender, EventArgs e)
         {
             {
-                int de, a;
-                double cantidad, respuesta;
-
+                int de = 0, a = 0;
+                double cantidad = 0, respuesta = 0;
                 de = cboDeConversores.SelectedIndex;
                 a = cboAConversores.SelectedIndex;
-
                 cantidad = double.Parse(txtCantidadConversores.Text);
 
-               
-
-                respuesta = objConversores.monedas[cboTipoConversor.SelectedIndex][a] / objConversores.monedas[cboTipoConversor.SelectedIndex][de] * cantidad;
-                lblRespuestaConversores.Text = "Respuesta: " + Math.Round(respuesta, 3);
+                respuesta = objConversores.Convertir(cboTipoConversor.SelectedIndex, de, a, cantidad);
+                if (respuesta < 1)
+                    lblRespuestaConversores.Text = "Respuesta: "  + respuesta;
+                else
+                    lblRespuestaConversores.Text = "Respuesta: "  + Math.Round(respuesta, 2);
 
             }
         }
@@ -49,10 +48,10 @@ namespace Conversores
         {
             {
                 cboDeConversores.Items.Clear();
-                cboDeConversores.Items.AddRange(objConversores.TipoDeConversores[cboTipoConversor.SelectedIndex]);
+                cboDeConversores.Items.AddRange(objConversores.etiquetas[cboTipoConversor.SelectedIndex]);
 
                 cboAConversores.Items.Clear();
-                cboAConversores.Items.AddRange(objConversores.TipoDeConversores[cboTipoConversor.SelectedIndex]);
+                cboAConversores.Items.AddRange(objConversores.etiquetas[cboTipoConversor.SelectedIndex]);
             }
         }
     }
