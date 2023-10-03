@@ -8,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Conversores
+namespace ejercicios
 {
     public partial class Form1 : Form
-
-       
     {
-        Conversores objConversores = new Conversores();
-
+        Conexion objConexion = new Conexion();
+        DataSet miDs = new DataSet();
+        public int posicion =0;
+        String accion = "nuevo";
         public Form1()
         {
             InitializeComponent();
@@ -23,36 +23,112 @@ namespace Conversores
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            actualizarDsMaterias();
+        }
+        private void actualizarDsMaterias()
+        {
+            miDs.Clear();
+            miDs = objConexion.obtenerDatos();
+            mostrarMaterias();
+            mostrarDatosMateria();
+        }
+        private void mostrarMaterias()
+        {
+            grdDatosMaterias.DataSource = miDs.Tables["materias"].DefaultView;
+        }
+        private void mostrarDatosMateria()
+        {
+            txtCodigoMateria.Text = miDs.Tables["materias"].Rows[posicion].ItemArray[1].ToString();
+            txtNombreMateria.Text = miDs.Tables["materias"].Rows[posicion].ItemArray[2].ToString();
+            txtUvMateria.Text = miDs.Tables["materias"].Rows[posicion].ItemArray[3].ToString();
 
+            lblnRegistroMateria.Text = (posicion + 1) + " de " + miDs.Tables["materias"].Rows.Count;
         }
 
-        private void btnConvertirConversores_Click(object sender, EventArgs e)
+        private void btnSiguienteMateria_Click(object sender, EventArgs e)
         {
-            {
-                int de = 0, a = 0;
-                double cantidad = 0, respuesta = 0;
-                de = cboDeConversores.SelectedIndex;
-                a = cboAConversores.SelectedIndex;
-                cantidad = double.Parse(txtCantidadConversores.Text);
-
-                respuesta = objConversores.Convertir(cboTipoConversor.SelectedIndex, de, a, cantidad);
-                if (respuesta < 1)
-                    lblRespuestaConversores.Text = "Respuesta: "  + respuesta;
-                else
-                    lblRespuestaConversores.Text = "Respuesta: "  + Math.Round(respuesta, 2);
-
+            if (posicion < miDs.Tables["materias"].Rows.Count-1){
+                posicion++;
+                mostrarDatosMateria();
+            } else{
+                MessageBox.Show("Ultimo Registro", "Registro de Materias");
             }
         }
 
-        private void cboTipoConversor_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnUltimoMateria_Click(object sender, EventArgs e)
         {
-            {
-                cboDeConversores.Items.Clear();
-                cboDeConversores.Items.AddRange(objConversores.etiquetas[cboTipoConversor.SelectedIndex]);
+            posicion = miDs.Tables["materias"].Rows.Count - 1;
+            mostrarDatosMateria();
+        }
 
-                cboAConversores.Items.Clear();
-                cboAConversores.Items.AddRange(objConversores.etiquetas[cboTipoConversor.SelectedIndex]);
+        private void btnAnteriorMateria_Click(object sender, EventArgs e)
+        {
+            if (posicion > 0){
+                posicion--;
+                mostrarDatosMateria();
+            }else {
+                MessageBox.Show("Primer regisro", "Registro de Materias");
             }
+        }
+
+        private void btnPrimeroMateria_Click(object sender, EventArgs e)
+        {
+            posicion = 0;
+            mostrarDatosMateria();
+        }
+
+        private void btnNuevoMateria_Click(object sender, EventArgs e)
+        {
+            if (btnNuevoMateria.Text == "Nuevo"){
+                btnNuevoMateria.Text = "Guardar";
+                btnModificarMateria.Text = "Cancelar";
+                estadoControles(false);
+                limpiarCajas();
+                accion = "nuevo";
+            }else {//Guardar
+                String[] materias = new string[] {
+                    accion,txtCodigoMateria.Text, txtNombreMateria.Text, txtUvMateria.Text,
+                    miDs.Tables["materias"].Rows[posicion].ItemArray[0].ToString()
+                };
+                String msg = objConexion.mantenimientoMaterias(materias);
+                MessageBox.Show(msg);
+                actualizarDsMaterias();
+                estadoControles(true);
+                btnNuevoMateria.Text = "Nuevo";
+                btnModificarMateria.Text = "Modificar";
+            }
+        }
+
+        private void btnModificarMateria_Click(object sender, EventArgs e)
+        {
+            if (btnModificarMateria.Text == "Modificar"){
+                btnNuevoMateria.Text = "Guardar";
+                btnModificarMateria.Text = "Cancelar";
+                estadoControles(false);
+                accion = "modificar";
+            }else{
+
+                estadoControles(true);
+                mostrarDatosMateria();
+                btnNuevoMateria.Text = "Nuevo";
+                btnModificarMateria.Text = "Modificar";
+            }
+        }
+        private void estadoControles(Boolean estado)
+        {
+            txtCodigoMateria.ReadOnly = estado;
+            txtNombreMateria.ReadOnly = estado;
+            txtUvMateria.ReadOnly = estado;
+
+            grbNavegacionMateria.Enabled = estado;
+            btnEliminarMateria.Enabled = estado;
+            txtBuscarMaterias.ReadOnly = !estado;
+        }
+        private void limpiarCajas()
+        {
+            txtCodigoMateria.Text = "";
+            txtNombreMateria.Text = "";
+            txtUvMateria.Text = "";
         }
     }
 }
